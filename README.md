@@ -1,4 +1,3 @@
 # Vegetable-Samurai
 
-
-This is the game
+This is a test to see if everyone is recieving this correctly
