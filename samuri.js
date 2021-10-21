@@ -2,17 +2,19 @@ var score, GamePiece1, GamePiece2, GamePiece3;
 var Color = ["yellow", "green", "red"];
 
 function startGame() {
+    console.log("The game has started");
     for(let i = 1; i <= 3; i++ ){
         randColor = Color[getRandomInt(0,2)];
         randXCoordinent = getRandomInt(-500, 2000);
         randYCoordient = getRandomInt(-500, 200);
         if ((randXCoordinent <= 0 && randYCoordient >= 0) || (randXCoordinent <= 0 && randYCoordient <= 0)){
             window["GamePiece"+i] = new ComponentRight(20, 20, randColor, randXCoordinent, randYCoordient);
+            console.log("It worked");
         }
         else if((randXCoordinent >= 0 && randYCoordient <= 0) || (randXCoordinent >= 0 && randYCoordient >= 0)){
             window["GamePiece"+i] = new ComponentRight(20, 20, randColor, randXCoordinent, randYCoordient);
+            console.log("It worked 2");
         }
-        
     }
     myGameArea.start();
 }

@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <title> Vegetable Samurai </title>
 	<meta charset="UTF-8">
 	<meta name="author" content="Anna Pitcock, Connor Bilgrave, Joseph Hall">
 	<link rel="stylesheet" href="samuri.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="samuri.js"></script>
+    
 </head>
-<body onload="startGame()">
+<body>
 
-<p>Gravity makes the red square fall to the ground and beyond.</p>
+<header>
+    <h1>Welcome to Vegetable Samurai!</h1>
+    <h2>Score: </h2>
+    <p id="score">0</p>
+</header>
+<button onclick="startGame()">Click here to start the game!</button>
+
+<script src="samuri.js"></script>
 
 </body>
 </html>
