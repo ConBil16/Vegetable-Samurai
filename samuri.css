@@ -1,3 +1,20 @@
-GamePiece1 {
-    border-radius: 50%;
+canvas {
+    background-color: rgb(63, 63, 63);
+    margin-left: 14rem;
+    margin-top: 3rem;
+    position: absolute;
+}
+
+h2, #score {
+    margin-left: 4rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin-left: 32rem;
+    margin-top: 10rem;
+    padding: 5rem;
 }
