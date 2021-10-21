@@ -14,7 +14,7 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 1000;
+        this.canvas.width = 900;
         this.canvas.height = 700;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -170,7 +170,9 @@ function bomb(width, height, color, x, y) {
             ctx.fillRect(300, 200, 400, 300);
             var endScore = document.getElementById("score").textContent;
             endScore = parseInt(endScore);
-            document.getElementById("end").innerHTML = endScore;
+            ctx.font = "30px Arial";
+            ctx.strokeText("Final Score:", 420, 300);
+            ctx.strokeText(endScore, 450, 400);
         }
     }
 }
