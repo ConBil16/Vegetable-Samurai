@@ -7,7 +7,11 @@ function startGame() {
     GamePiece4 = new componentRight(50, 50, "red", -2000, -1000);
     GamePiece5 = new componentLeft(50, 50, "green", 2000, -3000);
     GamePiece6 = new componentUp(50, 50, "yellow", 200, 1000);
-    Bomb = new bomb(50, 50, "yellow", 0, 0);
+    Bomb = new bomb(50, 50, "blue", 0, 0);
+    Bomb1 = new bomb1(50, 50, "blue", 0, 700);
+    Bomb2 = new bomb2(50, 50, "blue", -70, -70);
+    Bomb3 = new bomb3(50, 50, "blue", 1700, 800);
+    Bomb4 = new bomb4(50, 50, "blue", 850, -1000);
     myGameArea.start();
 }
 
@@ -29,6 +33,10 @@ var myGameArea = {
             GamePiece5.checkClick(mouseX, mouseY);
             GamePiece6.checkClick(mouseX, mouseY);
             Bomb.checkClick(mouseX, mouseY);
+            Bomb1.checkClick(mouseX, mouseY);
+            Bomb2.checkClick(mouseX, mouseY);
+            Bomb3.checkClick(mouseX, mouseY);
+            Bomb4.checkClick(mouseX, mouseY);
         });    
     },
     stop : function() {
@@ -145,10 +153,10 @@ function bomb(width, height, color, x, y) {
     this.height = height;
     this.x = x;
     this.y = y;  
-    this.speedX = 0;
-    this.speedY = 0;    
-    this.gravity = 0;
-    this.gravitySpeed = 0;
+    this.speedX = 4;
+    this.speedY = 1;    
+    this.gravity = 0.1;
+    this.gravitySpeed = 0.1;
     this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle = color;
@@ -157,7 +165,7 @@ function bomb(width, height, color, x, y) {
     this.newPos = function() {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
-        this.y += this.speedY + this.gravitySpeed;       
+        this.y += this.speedY + this.gravitySpeed; 
     }
     this.checkClick = function(mouseX, mouseY) {
         outsideX = this.x + this.width;
@@ -176,6 +184,153 @@ function bomb(width, height, color, x, y) {
         }
     }
 }
+
+function bomb1(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;  
+    this.speedX = 5;
+    this.speedY = -1;    
+    this.gravity = -0.1;
+    this.gravitySpeed = 0.1;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed; 
+    }
+    this.checkClick = function(mouseX, mouseY) {
+        outsideX = this.x + this.width;
+        outsideY = this.y + this.height;
+        if (mouseX >= this.x && mouseX <= outsideX && mouseY >= this.y && mouseY <= outsideY){
+            document.getElementById("top").innerHTML = "Game Over!";
+            myGameArea.stop();
+            ctx = myGameArea.context;
+            ctx.fillStyle = "white";
+            ctx.fillRect(300, 200, 400, 300);
+            var endScore = document.getElementById("score").textContent;
+            endScore = parseInt(endScore);
+            ctx.font = "30px Arial";
+            ctx.strokeText("Final Score:", 420, 300);
+            ctx.strokeText(endScore, 450, 400);
+        }
+    }
+}
+
+function bomb2(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;  
+    this.speedX = 5;
+    this.speedY = 2;    
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed; 
+    }
+    this.checkClick = function(mouseX, mouseY) {
+        outsideX = this.x + this.width;
+        outsideY = this.y + this.height;
+        if (mouseX >= this.x && mouseX <= outsideX && mouseY >= this.y && mouseY <= outsideY){
+            document.getElementById("top").innerHTML = "Game Over!";
+            myGameArea.stop();
+            ctx = myGameArea.context;
+            ctx.fillStyle = "white";
+            ctx.fillRect(300, 200, 400, 300);
+            var endScore = document.getElementById("score").textContent;
+            endScore = parseInt(endScore);
+            ctx.font = "30px Arial";
+            ctx.strokeText("Final Score:", 420, 300);
+            ctx.strokeText(endScore, 450, 400);
+        }
+    }
+}
+function bomb3(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;  
+    this.speedX = -5;
+    this.speedY = -2;    
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed; 
+    }
+    this.checkClick = function(mouseX, mouseY) {
+        outsideX = this.x + this.width;
+        outsideY = this.y + this.height;
+        if (mouseX >= this.x && mouseX <= outsideX && mouseY >= this.y && mouseY <= outsideY){
+            document.getElementById("top").innerHTML = "Game Over!";
+            myGameArea.stop();
+            ctx = myGameArea.context;
+            ctx.fillStyle = "white";
+            ctx.fillRect(300, 200, 400, 300);
+            var endScore = document.getElementById("score").textContent;
+            endScore = parseInt(endScore);
+            ctx.font = "30px Arial";
+            ctx.strokeText("Final Score:", 420, 300);
+            ctx.strokeText(endScore, 450, 400);
+        }
+    }
+}
+function bomb4(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;  
+    this.speedX = -2;
+    this.speedY = 2;    
+    this.gravity = 0.1;
+    this.gravitySpeed = 0.1;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed; 
+    }
+    this.checkClick = function(mouseX, mouseY) {
+        outsideX = this.x + this.width;
+        outsideY = this.y + this.height;
+        if (mouseX >= this.x && mouseX <= outsideX && mouseY >= this.y && mouseY <= outsideY){
+            document.getElementById("top").innerHTML = "Game Over!";
+            myGameArea.stop();
+            ctx = myGameArea.context;
+            ctx.fillStyle = "white";
+            ctx.fillRect(300, 200, 400, 300);
+            var endScore = document.getElementById("score").textContent;
+            endScore = parseInt(endScore);
+            ctx.font = "30px Arial";
+            ctx.strokeText("Final Score:", 420, 300);
+            ctx.strokeText(endScore, 450, 400);
+        }
+    }
+}
+
 
 function sleep(milliseconds) {
     const date = Date.now();
@@ -201,4 +356,12 @@ function updateGameArea() {
     GamePiece6.update();
     Bomb.newPos();
     Bomb.update();
+    Bomb1.newPos();
+    Bomb1.update();
+    Bomb2.newPos();
+    Bomb2.update();
+    Bomb3.newPos();
+    Bomb3.update();
+    Bomb4.newPos();
+    Bomb4.update();
 }
