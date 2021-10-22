@@ -171,8 +171,9 @@ function bomb(width, height, color, x, y) {
             var endScore = document.getElementById("score").textContent;
             endScore = parseInt(endScore);
             ctx.font = "30px Arial";
-            ctx.strokeText("Final Score:", 420, 300);
-            ctx.strokeText(endScore, 450, 400);
+            ctx.fillStyle = "black";
+            ctx.fillText("Final Score:", 420, 300);
+            ctx.fillText(endScore, 450, 400);
         }
     }
 }
