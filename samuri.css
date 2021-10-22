@@ -5,8 +5,20 @@ canvas {
     position: absolute;
 }
 
-h2, #score {
+/* h2, #score {
     margin-left: 4rem;
+
+} */
+
+.divScore{
+    text-align: center;
+    position: relative;
+    top: 2rem;
+    left: 1.2rem;
+    border: black solid 2px;
+    background-color: rgb(63, 63, 63);
+    width: 10%;
+    color: white;
 }
 
 h1 {
@@ -21,5 +33,31 @@ button {
 
 #btn1 {
     background-color: black;
+}
+
+aside{
+    float: right;
+    width: 10%;
+    border: black solid 2px;
+    background-color: rgb(63, 63, 63);
+    /* margin-right: 20px; */
+    margin: auto;
+    color: white;
+}
+
+.exampleBomb{
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+    margin-top: 10px;
+    margin: auto;
+}
+
+#Mark{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
 }
 
